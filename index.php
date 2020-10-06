@@ -32,8 +32,8 @@ include_once("COMMON_HTML/headtag.php");
   </div>
 </div>
 </div>
-
-<div class="w3-padding-64 w3-theme-l1 bgimg">
+<center><div class="loader" style="margin-top:100px;display:bock" id="pageLoader"></div></center>
+<div class="w3-padding-64 w3-theme-l1 bgimg" id='gotLoaded' style="display:none">
     <center>
 	<h1 class="w3-xlarge">
 	    <b><span class="w3-orange w3-text-white"> JEE</span> PRACTICE TEST</b>
@@ -41,8 +41,8 @@ include_once("COMMON_HTML/headtag.php");
 	<div class="w3-content w3-margin w3-card w3-center" style="max-width:400px">
 	
 	<div class="w3-card w3-hover-shadow w3-animate-zoom" style="margin-top:20px;">
-	<div class="w3-light-gray w3-container w3-center" style="z-index:2;">
-		<div class="w3-padding-16">
+	<div class="w3-light-gray w3-container w3-center" id="getform" style="z-index:2;">
+		<!--<div class="w3-padding-16">
 			
 		<div class="w3-xlarge w3-bold w3-margin-top"><b>Register</b></div>
 		<div class="w3-center" style="padding-top:16px;">
@@ -77,7 +77,7 @@ include_once("COMMON_HTML/headtag.php");
 			</div>
 			
 		</form>
-		</div>
+		</div>-->
 	</div>
 	</div>
 	</div>
