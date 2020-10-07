@@ -117,7 +117,7 @@ let load = () => {
         getLoad.style.display = "block";
 	    loader.style.display = "none";    
             
-        }, 1000);
+        }, 500);
 	    
 	    
 	}
