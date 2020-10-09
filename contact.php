@@ -24,7 +24,7 @@ include_once("COMMON_HTML/headtag.php");
 	<div class="w3-content w3-margin w3-card w3-center" style="max-width:400px">
 	
 	<div class="w3-card w3-hover-shadow" style="margin-top:20px;">
-	<div class="w3-light-gray w3-container w3-center w3-animate-zoom" style="z-index:2;" id="getForm">
+	<div class="w3-light-gray w3-container w3-center w3-animate-zoom" style="z-index:2;" id="getform">
 		<!-- 
 		<div class="w3-padding-16">
 			
