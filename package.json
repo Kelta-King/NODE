@@ -1,0 +1,24 @@
+{
+  "name": "crudapp",
+  "version": "1.0.0",
+  "description": "Node.js practice",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kelta-King/NODE.git"
+  },
+  "author": "keltaking",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kelta-King/NODE/issues"
+  },
+  "homepage": "https://github.com/Kelta-King/NODE#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
