@@ -3,13 +3,16 @@ const bodyparser = require("body-parser");
 const MongoClient = require('mongodb').MongoClient;
 const { response } = require("express");
 const { ObjectId } = require("mongodb");
-const uri = "mongodb+srv://kingman:test123@cluster0.zmum7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+const config = require("./config");
+let uri = config.uri;
 const client = new MongoClient();
 
 const app = express();
 app.set("View engine", "ejs");
 app.listen(3000, () => {
     console.log("Listeneing at 3000");
+    console.log(uri);
 });
 
 MongoClient.connect(uri, { 
