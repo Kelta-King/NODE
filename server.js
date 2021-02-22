@@ -22,13 +22,16 @@ MongoClient.connect(uri, {
         const db = client.db('star-wars');
         const quotesCollection = db.collection('quotes');
         app.use(bodyparser.urlencoded({extended:true}));
+        
+        app.use(express.static('public'));
+        app.use(bodyparser.json());
 
         app.get("/", function(req, res){
             
             db.collection('quotes').find().toArray().then(results => {
                 res.render('index.ejs', {quotes: results});
             })
-            
+
         });
 
         app.get("/:id", function(req, res){
@@ -40,6 +43,29 @@ MongoClient.connect(uri, {
         app.post("/quotes", function(req, res){
             quotesCollection.insertOne(req.body);
             res.redirect("/");
+        });
+
+        app.put("/quotes", function(req, res){
+
+            quotesCollection.findOneAndUpdate(
+                {name: "ghjj"},
+                {
+                    $set: {
+                        name: req.body.name,
+                        quote: req.body.quote
+                    }
+                },
+                {
+                    upsert:true
+                }
+
+            ).then(result => {
+                console.log(result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
         });
 
 })

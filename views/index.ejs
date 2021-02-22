@@ -1,30 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD App</title>
-</head>
-<body>
-    <h1>NODE.js will rule next</h1>
-    <form action="/quotes" method="POST">
-        <input type="text" placeholder="name" name="name">
-        <input type="text" placeholder="quote" name="quote">
-        <button type="submit">Submit</button>
-    </form>
-    <div>
-        <h2>Quotes</h2>
-        <% for( let i=0; i < quotes.length; i++){ %>
-            <div>
-                <%= quotes[i].name %> : <%= quotes[i].quote %>
+<html>
+<title>Revision CRUD App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/CSS/kel.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+        <div class="w3-white w3-text-grey w3-card-4">
+            <div class='w3-xxlarge w3-padding w3-border-bottom'>
+                ADD Quotes
             </div>
-        <% } %>
+            <div class='w3-padding'>
+                <form>
+                    <div class='w3-section'>
+                        <input type="text" id='name' placeholder="Name" class='w3-input w3-border w3-round'>
+                    </div>
+                    <div class='w3-section'>
+                        <textarea type="text" id='name' placeholder="Name" class='w3-input w3-border w3-round'></textarea>
+                    </div>
+                    <div class='w3-section'>
+                        <button id='addQuote' class='w3-button w3-round w3-blue kel-hover'>ADD Quote</button>
+                    </div>
+                </form>
+            </div>
+        </div><br>
+
     </div>
-    <div>
-        <button id='updt'>
-            update dart vader
-        </button>
+
+    <div class="w3-twothird">
+        <div class="w3-white w3-text-grey w3-card-4">
+            <div class='w3-xxlarge w3-padding'> List of all Quotes </div>
+            
+            <div class='w3-section w3-padding'>
+                <div class='w3-border w3-round w3-padding w3-hover-shadow'>
+                    <div class='w3-bar w3-border-bottom'>
+                        <div class=' w3-bar-item w3-padding w3-large'><b>Name:</b> Dart Vader</div>
+                        <button class='w3-bar-item w3-right w3-red w3-button w3-round kel-hover w3-margin-left'>Delete</button>
+                        <button class='w3-bar-item w3-right w3-blue w3-button w3-round kel-hover'><i class='fa fa-pencil'></i> Edit</button>
+                        
+                    </div>
+                    <div class='w3-padding w3-large'><b>Quote:</b> World is ending</div>
+                </div>
+            </div>
+            
+            <div class='w3-padding w3-margin w3-center w3-xxlarge w3-text-green w3-border-top'>
+                Thank you
+            </div>
+        </div>
     </div>
+    
+  </div>
+
+</div>
+
+
 </body>
 </html>
