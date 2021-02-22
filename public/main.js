@@ -29,6 +29,8 @@ document.querySelector("#addQuote").addEventListener('click', () => {
     .then(res => {
         console.log(res)
         loader.style.display = "none";
+        document.querySelector("#name").value = "";
+        document.querySelector("#quote").value = "";
         location.reload();
     })
 
@@ -39,19 +41,7 @@ let deleteQuote = (id) => {
     if(!confirm("Do you really want to remove this quote?")){
         return false;
     }
-    /*
-    fetch('/deleteQuote', {
-        method: 'delete',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id:id,
-        })
-    })
-    .then(res => {
-        console.log(res)
-        //location.reload();
-    })
-    */
+    
     let str = JSON.stringify({
         id:id,
     });

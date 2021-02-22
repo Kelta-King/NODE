@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<title>Edit blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/CSS/kel.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="">
+
+<div class="w3-content w3-light-grey" style="max-width:700px;">
+    <div class="">
+        <% if(typeof error !== 'undefined'){ %>
+            <div class='w3-text-red w3-xlarge w3-padding-16 w3-center'>
+                <%= error %>
+            </div>
+        <% }else{ %>
+        
+        <div class='w3-center w3-xxlarge w3-padding-16'>
+            Edit quote of <%= data[0].name %>
+        </div>
+        <div class='w3-padding'>
+                
+            <center>
+                <div class='loader' id='loader-edit' style="display: none;"></div>
+                <div class='w3-text-red' id='error-edit'></div>
+            </center>
+            <div class='w3-section'>
+                <input type="text" id='name' placeholder="Name" value="<%= data[0].name %>" class='w3-input w3-border w3-round'>
+            </div>
+            <div class='w3-section'>
+                <textarea type="text" id='quote' placeholder="Name" class='w3-input w3-border w3-round'><%= data[0].quote %></textarea>
+            </div>
+            <div class='w3-section'>
+                <button onclick="editQuote('<%= data[0]._id %>')" class='w3-button w3-round w3-blue kel-hover'>Edit Quote</button>
+            </div>
+            
+        </div>
+        <script src="/edit.js"></script>
+        <% } %>
+    </div>
+</div>
+
+</body>
+</html>

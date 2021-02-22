@@ -35,10 +35,61 @@ MongoClient.connect(uri, {
         })
 
     });
+
+    app.get("/edit/:id", function(req, res){
+
+        let id = req.params.id;
+
+        try{
+        db.collection('quotes').find({
+            "_id" : ObjectId(id),
+        }).toArray().then(results => {
+            if(results.length <= 0){
+                res.render("editQuote.ejs", {error: "Incorrect blogs id"});
+            }
+            else{
+                res.render("editQuote.ejs", {data:results});
+            }
+        })
+        .catch(err => {
+            res.render("editQuote.ejs", {error: "Incorrect url"});
+        })
+        }
+        catch(err){
+            res.render("editQuote.ejs", {error: "Incorrect url"});
+        }
+
+    })
     
     app.post("/addQuote", function(req, res){
 
         quotesCollection.insertOne(req.body).then(result => {
+            res.json('Success');
+        })
+        .catch(err => {
+            console.log(err);
+        })
+        
+
+    });
+
+    app.post("/editQuote", function(req, res){
+
+        let id = req.body.id;
+        quotesCollection.findOneAndUpdate(
+            {
+                "_id" : ObjectId(id),
+            },
+            {
+                $set: {
+                    name: req.body.name,
+                    quote: req.body.quote
+                }
+            },
+            {
+                upsert:true
+            }
+        ).then(result => {
             res.json('Success');
         })
         .catch(err => {
@@ -69,6 +120,8 @@ MongoClient.connect(uri, {
         
 
     });
+
+
     /*
     app.post("/quotes", function(req, res){
         quotesCollection.insertOne(req.body);

@@ -57,7 +57,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     <div class='w3-bar w3-border-bottom'>
                         <div class=' w3-bar-item w3-padding w3-large'><b>Name:</b> <%= quotes[i].name %></div>
                         <button class='w3-bar-item w3-right w3-red w3-button w3-round kel-hover w3-margin-left' onclick="deleteQuote('<%= quotes[i]._id %>')">Delete</button>
-                        <button class='w3-bar-item w3-right w3-blue w3-button w3-round kel-hover'><i class='fa fa-pencil'></i> Edit</button>
+                        <button class='w3-bar-item w3-right w3-blue w3-button w3-round kel-hover' onclick='window.open("/edit/<%= quotes[i]._id %>", "_self")'><i class='fa fa-pencil'></i> Edit</button>
                         
                     </div>
                     <div class='w3-padding w3-large'><b>Quote:</b> <%= quotes[i].quote %></div>
