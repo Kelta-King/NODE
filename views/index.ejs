@@ -26,17 +26,21 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 ADD Quotes
             </div>
             <div class='w3-padding'>
-                <form>
-                    <div class='w3-section'>
-                        <input type="text" id='name' placeholder="Name" class='w3-input w3-border w3-round'>
-                    </div>
-                    <div class='w3-section'>
-                        <textarea type="text" id='name' placeholder="Name" class='w3-input w3-border w3-round'></textarea>
-                    </div>
-                    <div class='w3-section'>
-                        <button id='addQuote' class='w3-button w3-round w3-blue kel-hover'>ADD Quote</button>
-                    </div>
-                </form>
+                
+                <center>
+                    <div class='loader' id='loader-add' style="display: none;"></div>
+                    <div class='w3-text-red' id='error-add'></div>
+                </center>
+                <div class='w3-section'>
+                    <input type="text" id='name' placeholder="Name" class='w3-input w3-border w3-round'>
+                </div>
+                <div class='w3-section'>
+                    <textarea type="text" id='quote' placeholder="Name" class='w3-input w3-border w3-round'></textarea>
+                </div>
+                <div class='w3-section'>
+                    <button id='addQuote' class='w3-button w3-round w3-blue kel-hover'>ADD Quote</button>
+                </div>
+                
             </div>
         </div><br>
 
@@ -46,18 +50,22 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         <div class="w3-white w3-text-grey w3-card-4">
             <div class='w3-xxlarge w3-padding'> List of all Quotes </div>
             
+            <% for(let i=0 ; i < quotes.length ; i++){ %>
+
             <div class='w3-section w3-padding'>
                 <div class='w3-border w3-round w3-padding w3-hover-shadow'>
                     <div class='w3-bar w3-border-bottom'>
-                        <div class=' w3-bar-item w3-padding w3-large'><b>Name:</b> Dart Vader</div>
-                        <button class='w3-bar-item w3-right w3-red w3-button w3-round kel-hover w3-margin-left'>Delete</button>
+                        <div class=' w3-bar-item w3-padding w3-large'><b>Name:</b> <%= quotes[i].name %></div>
+                        <button class='w3-bar-item w3-right w3-red w3-button w3-round kel-hover w3-margin-left' onclick="deleteQuote('<%= quotes[i]._id %>')">Delete</button>
                         <button class='w3-bar-item w3-right w3-blue w3-button w3-round kel-hover'><i class='fa fa-pencil'></i> Edit</button>
                         
                     </div>
-                    <div class='w3-padding w3-large'><b>Quote:</b> World is ending</div>
+                    <div class='w3-padding w3-large'><b>Quote:</b> <%= quotes[i].quote %></div>
                 </div>
             </div>
             
+            <% } %>
+
             <div class='w3-padding w3-margin w3-center w3-xxlarge w3-text-green w3-border-top'>
                 Thank you
             </div>
@@ -67,7 +75,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   </div>
 
 </div>
-
-
+<script src="/main.js"></script>
 </body>
 </html>
