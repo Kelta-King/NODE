@@ -39,7 +39,7 @@ let deleteQuote = (id) => {
     if(!confirm("Do you really want to remove this quote?")){
         return false;
     }
-
+    /*
     fetch('/deleteQuote', {
         method: 'delete',
         headers: { 'Content-Type': 'application/json' },
@@ -51,5 +51,26 @@ let deleteQuote = (id) => {
         console.log(res)
         //location.reload();
     })
+    */
+    let str = JSON.stringify({
+        id:id,
+    });
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        
+        if(this.readyState == 4 && this.status == 200){
+            alert(this.responseText);
+            if(this.responseText == "Success"){
+                location.reload();
+            }
+            else{
+                alert(this.responseText);
+            }
+        }
+
+    }
+    xhttp.open("DELETE", "/deleteQuote", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(str);
 
 }

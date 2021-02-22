@@ -2,6 +2,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const MongoClient = require('mongodb').MongoClient;
 const { response } = require("express");
+const { ObjectId } = require("mongodb");
 const uri = "mongodb+srv://kingman:test123@cluster0.zmum7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient();
 
@@ -48,18 +49,18 @@ MongoClient.connect(uri, {
     });
 
     app.delete("/deleteQuote", function(req, res){
-        console.log(req.body.id);
+        
         quotesCollection.deleteOne(
             {
-                _id:req.body.id
+                "_id": ObjectId(req.body.id),
             }
         )
         .then(result => {
 
             if(result.deletedCount === 0){
-                return res.json("No quotes of this ID");
+                return res.send("No quotes of this ID");
             }
-            console.log(err);
+            return res.send("Success");
 
         })
         .catch(err => {
