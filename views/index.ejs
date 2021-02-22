@@ -7,10 +7,24 @@
     <title>CRUD App</title>
 </head>
 <body>
+    <h1>NODE.js will rule next</h1>
     <form action="/quotes" method="POST">
         <input type="text" placeholder="name" name="name">
         <input type="text" placeholder="quote" name="quote">
         <button type="submit">Submit</button>
-    </form>      
+    </form>
+    <div>
+        <h2>Quotes</h2>
+        <% for( let i=0; i < quotes.length; i++){ %>
+            <div>
+                <%= quotes[i].name %> : <%= quotes[i].quote %>
+            </div>
+        <% } %>
+    </div>
+    <div>
+        <button id='updt'>
+            update dart vader
+        </button>
+    </div>
 </body>
 </html>
