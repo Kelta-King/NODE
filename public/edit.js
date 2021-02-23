@@ -30,7 +30,7 @@ let editQuote = (id) => {
     .then(res => {
         console.log(res)
         loader.style.display = "none";
-        location.reload();
+        window.open("/", "_self");
     })
 
 }

@@ -19,8 +19,6 @@ MongoClient.connect(uri, {
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 }).then(client => {
-    const collection = client.db("test").collection("devices");
-    // perform actions on the collection object
     
     console.log("Connected");
         
